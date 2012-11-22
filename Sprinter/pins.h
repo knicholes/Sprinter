@@ -181,7 +181,7 @@
 #if MOTHERBOARD == 2
 #define KNOWN_BOARD 1
 
-#if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega1284P__) && !defined(__ATmega644P__) && !defined(__ATmega1284P__)  
+#if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega1284P__) 
 #error Oops!  Make sure you have 'Sanguino' selected from the 'Tools -> Boards' menu.
 #endif
 
@@ -441,49 +441,47 @@
 #endif
 
 // uncomment one of the following lines for RAMPS v1.3 or v1.0, comment both for v1.2 or 1.1
-// #define RAMPS_V_1_3
+#define RAMPS_V_1_3
 // #define RAMPS_V_1_0
 
 #ifdef RAMPS_V_1_3
 
+// For RAMPS 1.4
 #define X_STEP_PIN         54
 #define X_DIR_PIN          55
 #define X_ENABLE_PIN       38
 #define X_MIN_PIN           3
-#define X_MAX_PIN          -1   //2 //Max endstops default to disabled "-1", set to commented value to enable.
+#define X_MAX_PIN           -1
 
 #define Y_STEP_PIN         60
 #define Y_DIR_PIN          61
 #define Y_ENABLE_PIN       56
 #define Y_MIN_PIN          14
-#define Y_MAX_PIN          -1   //15
+#define Y_MAX_PIN          -1
 
 #define Z_STEP_PIN         46
 #define Z_DIR_PIN          48
 #define Z_ENABLE_PIN       62
 #define Z_MIN_PIN          18
-#define Z_MAX_PIN          -1   //19
+#define Z_MAX_PIN          -1
 
 #define E_STEP_PIN         26
 #define E_DIR_PIN          28
 #define E_ENABLE_PIN       24
 
-#define E_1_STEP_PIN         36
-#define E_1_DIR_PIN          34
-#define E_1_ENABLE_PIN       30
-
 #define SDPOWER            -1
 #define SDSS               53
 #define LED_PIN            13
+
 #define FAN_PIN            9
+
 #define PS_ON_PIN          12
 #define KILL_PIN           -1
-#define ALARM_PIN          -1
 
 #define HEATER_0_PIN       10
 #define HEATER_1_PIN       8
-#define TEMP_0_PIN         13   // ANALOG NUMBERING
-#define TEMP_1_PIN         14   // ANALOG NUMBERING
+#define TEMP_0_PIN          13   // ANALOG NUMBERING
+#define TEMP_1_PIN          14   // ANALOG NUMBERING
 #define TEMP_2_PIN         15   // ANALOG NUMBERING
 
 #else // RAMPS_V_1_1 or RAMPS_V_1_2 as default
@@ -598,11 +596,6 @@
 * Gen6 pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 51
-  #define MOTHERBOARD 5
-  #define GEN6_DELUXE
-#endif
-
 #if MOTHERBOARD == 5
 #define KNOWN_BOARD 1
 
@@ -637,18 +630,13 @@
     #define E_ENABLE_PIN    3     //Added @ EJE Electronics 20100715
     #define TEMP_0_PIN      5     //changed @ rkoeppl 20110410
     #define HEATER_0_PIN    14    //changed @ rkoeppl 20110410
+    #define HEATER_1_PIN    -1    //changed @ rkoeppl 20110410
     
-    #ifdef GEN6_DELUXE
-      #define HEATER_1_PIN   1    
-      #define TEMP_1_PIN     0    
-    #else
-      #define HEATER_1_PIN   -1   
-      #define TEMP_1_PIN     -1    
-    #endif
     
     #define SDPOWER          -1
     #define SDSS          17
     #define LED_PIN         -1    //changed @ rkoeppl 20110410
+    #define TEMP_1_PIN      -1    //changed @ rkoeppl 20110410
     #define FAN_PIN         -1    //changed @ rkoeppl 20110410
     #define PS_ON_PIN       -1    //changed @ rkoeppl 20110410
     //our pin for debugging.

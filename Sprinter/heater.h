@@ -88,13 +88,8 @@ extern unsigned char manage_monitor;
   extern int dTerm;
   extern int error;
   extern int heater_duty;
-  
-  extern unsigned int PID_Kp, PID_Ki, PID_Kd;
 #endif
 
-#if defined(FAN_SOFT_PWM) && (FAN_PIN > -1)
-  extern volatile unsigned char g_fan_pwm_val;
-#endif
 
 #ifdef AUTOTEMP
     extern float autotemp_max;
@@ -117,16 +112,8 @@ extern unsigned char manage_monitor;
 
 
 
-#if defined(PID_SOFT_PWM) || (defined(FAN_SOFT_PWM) && (FAN_PIN > -1))
+#ifdef PID_SOFT_PWM
  void init_Timer2_softpwm(void);
-#endif
-
-#ifdef PID_AUTOTUNE
- void PID_autotune(int PIDAT_test_temp);
-#endif
-
-#ifdef PIDTEMP
- void updatePID();
 #endif
 
 void manage_heater();
